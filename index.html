@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Espace Filles - Connexion</title>
+
+<style>
+/* BACKGROUND ANIMÉ */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(-45deg, #8b718f, #79587f, #a77486, #685c7d);
+    background-size: 400% 400%;
+    animation: gradientBG 10s ease infinite;
+}
+
+/* ANIMATION BACKGROUND */
+@keyframes gradientBG {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+/* CARD */
+.container {
+    background: rgb(212, 131, 228);
+    padding: 30px;
+    border-radius: 20px;
+    width: 320px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    animation: fadeIn 0.8s ease;
+}
+
+/* TITRE */
+h2 {
+    margin-bottom: 20px;
+    color: #8e24aa;
+}
+
+/* INPUTS */
+input {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    transition: 0.3s;
+}
+
+input:focus {
+    border-color: #ba68c8;
+    outline: none;
+    box-shadow: 0 0 5px #ba68c8;
+}
+
+/* BOUTONS */
+button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border-radius: 10px;
+    border: none;
+    background: #ba68c8;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.05);
+    background: #8e24aa;
+}
+
+/* MESSAGE */
+#message {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #d32f2f;
+}
+
+/* ANIMATION */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* PETIT TEXTE */
+.switch {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #555;
+}
+
+.switch span {
+    color: #8e24aa;
+    cursor: pointer;
+    font-weight: bold;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2 id="title">🌸 Connexion</h2>
+
+    <input type="text" id="username" placeholder="Nom d'utilisateur">
+    <input type="password" id="password" placeholder="Mot de passe">
+
+    <button onclick="handleAuth()" id="mainBtn">Se connecter</button>
+
+    <p id="message"></p>
+
+    <div class="switch">
+        <span onclick="toggleMode()">Créer un compte</span>
+    </div>
+
+</div>
+
+<script>
+let isLogin = true;
+
+/* SWITCH LOGIN / REGISTER */
+function toggleMode() {
+    isLogin = !isLogin;
+
+    document.getElementById("title").textContent = isLogin ? "🌸 Connexion" : "🌸 Inscription";
+    document.getElementById("mainBtn").textContent = isLogin ? "Se connecter" : "S'inscrire";
+    document.querySelector(".switch span").textContent = isLogin ? "Créer un compte" : "Déjà un compte ?";
+    document.getElementById("message").textContent = "";
+}
+
+/* AUTH */
+function handleAuth() {
+    const user = document.getElementById("username").value;
+    const pass = document.getElementById("password").value;
+    const msg = document.getElementById("message");
+
+    if (!user || !pass) {
+        msg.textContent = "Remplis tous les champs";
+        return;
+    }
+
+    if (isLogin) {
+        const savedUser = localStorage.getItem("user");
+        const savedPass = localStorage.getItem("pass");
+
+        if (user === savedUser && pass === savedPass) {
+            window.location.href = "home.html";
+        } else {
+            msg.textContent = "Identifiants incorrects";
+        }
+
+    } else {
+        localStorage.setItem("user", user);
+        localStorage.setItem("pass", pass);
+        msg.style.color = "plum";
+        msg.textContent = "Compte créé avec succès !";
+    }
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,183 @@
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(-45deg, #907ab8, #b98597, #85588d, #78577d);
+    background-size: 400% 400%;
+    animation: gradientBG 12s ease infinite;
+}
+
+/* ANIMATION BACKGROUND */
+@keyframes gradientBG {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+/* ==================== */
+/* HEADER */
+/* ==================== */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(12px);
+    color: #4a148c;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+/* BOUTON DECONNEXION */
+.logout {
+    background: #d695e8;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.logout:hover {
+    transform: scale(1.05);
+    background: #6a1b9a;
+}
+
+/* ==================== */
+/* NAVIGATION */
+/* ==================== */
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px;
+}
+
+nav button {
+    padding: 12px 18px;
+    border: none;
+    border-radius: 30px;
+    background: rgba(255,255,255,0.3);
+    backdrop-filter: blur(12px);
+    cursor: pointer;
+    font-weight: bold;
+    color: #4a148c;
+    transition: 0.3s;
+}
+
+nav button:hover {
+    background: #8e24aa;
+    color: white;
+    transform: scale(1.1);
+}
+
+/* ==================== */
+/* SECTIONS / CARDS GLASS */
+/* ==================== */
+section {
+    display: none;
+    max-width: 750px;
+    margin: auto;
+    padding: 25px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.25);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    animation: fadeIn 0.5s ease;
+}
+
+section.active {
+    display: block;
+}
+
+/* ==================== */
+/* CARTES DROITS, TEMOIGNAGES, TALENTS */
+/* ==================== */
+.card {
+    background: rgba(255,255,255,0.35);
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    animation: fadeIn 0.5s ease;
+}
+
+/* DROITS COLORÉS */
+.droit:nth-child(1) { border-left: 6px solid #42a5f5; }
+.droit:nth-child(2) { border-left: 6px solid #66bb6a; }
+.droit:nth-child(3) { border-left: 6px solid #ef5350; }
+.droit:nth-child(4) { border-left: 6px solid #ffa726; }
+
+/* ==================== */
+/* INPUT / TEXTAREA / BUTTON */
+/* ==================== */
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 15px;
+    border: none;
+    margin: 8px 0;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+button {
+    padding: 12px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+section button {
+    background: #8e24aa;
+    color: white;
+}
+
+section button:hover {
+    background: #6a1b9a;
+    transform: scale(1.05);
+}
+
+/* ==================== */
+/* MESSAGES DISCUSSION */
+/* ==================== */
+#messagesContainer {
+    max-height: 200px;
+    overflow-y: auto;
+    margin-bottom: 10px;
+}
+
+.message {
+    background: #f3e5f5;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 15px;
+    animation: slideIn 0.3s ease;
+}
+
+/* ==================== */
+/* IMAGES TALENTS */
+#talentsContainer img {
+    margin-bottom: 10px;
+    border-radius: 15px;
+}
+
+/* ==================== */
+/* ANIMATIONS */
+/* ==================== */
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(20px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+@keyframes slideIn {
+    from {opacity: 0; transform: translateX(-20px);}
+    to {opacity: 1; transform: translateX(0);}
+}
