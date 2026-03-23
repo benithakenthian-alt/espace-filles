@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Espace Filles</title>
+<link rel="stylesheet" href="sstyle.css">
+</head>
+
+<body>
+
+<header>
+    <h1>Espace Filles</h1>
+    <button class="logout" onclick="logout()">Déconnexion</button>
+</header>
+
+<nav>
+    <button onclick="showSection('discussion')">💬 Discussion</button>
+    <button onclick="showSection('temoignages')">✨ Témoignages</button>
+    <button onclick="showSection('droits')">⚖️ Droits</button>
+    <button onclick="showSection('talents')">🎨 Talents</button>
+</nav>
+
+<section id="discussion" class="active">
+    <h2>💬 Discussion</h2>
+    <div id="messagesContainer"></div>
+    <input type="text" id="messageInput" placeholder="Écris ton message...">
+    <button onclick="addMessage()">Envoyer</button>
+</section>
+
+<section id="talents">
+    <h2>🎨 Talents</h2>
+
+    <input type="file" id="photoInput" accept="image/*">
+    <button onclick="addTalent()">Publier</button>
+
+    <div id="talentsContainer"></div>
+</section>
+
+<section id="droits">
+    <h2>⚖️ Droits des filles</h2>
+
+    <div class="card droit">
+        <h3>📚 Droit à l’éducation</h3>
+        <p>Chaque fille a le droit d’aller à l’école, d’apprendre et de construire son avenir.</p>
+    </div>
+
+    <div class="card droit">
+        <h3>💪 Droit à l’égalité</h3>
+        <p>Les filles ont les mêmes droits et opportunités que les garçons.</p>
+    </div>
+
+    <div class="card droit">
+        <h3>🏥 Droit à la santé</h3>
+        <p>Chaque fille doit avoir accès aux soins médicaux et vivre en bonne santé.</p>
+    </div>
+
+    <div class="card droit">
+        <h3>🗣️ Droit de s’exprimer</h3>
+        <p>Tu as le droit de donner ton opinion et d’être écoutée.</p>
+    </div>
+</section>
+
+<section id="temoignages">
+    <h2>✨ Témoignages</h2>
+
+    <textarea id="storyInput" placeholder="Écris ton histoire..."></textarea>
+
+    <input type="file" id="videoInput" accept="video/*">
+
+    <button onclick="addStory()">Publier</button>
+
+    <div id="storiesContainer"></div>
+</section>
+<script src="script.js"></script>
+</body>
+</html>
